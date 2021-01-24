@@ -12,15 +12,10 @@ import org.junit.Assert;
 import org.junit.Before;
 import org.junit.BeforeClass;
 import org.junit.Test;
-import static org.junit.Assert.*;
 
-/**
- *
- * @author vadim
- */
-public class NewEmptyJUnitTest {
+public class JUnitTest {
     
-    public NewEmptyJUnitTest() {
+    public JUnitTest() {
     }
 
     @BeforeClass
@@ -50,10 +45,4 @@ public class NewEmptyJUnitTest {
     @After
     public void tearDown() throws Exception {
     }
-
-    // TODO add test methods here.
-    // The methods must be annotated with annotation @Test. For example:
-    //
-    // @Test
-    // public void hello() {}
 }
