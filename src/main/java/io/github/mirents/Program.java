@@ -14,11 +14,12 @@ public class Program {
         sweetBox.add(new SwChocolate("Бабаевский", 95.4, 74.5));
         sweetBox.add(new SwChocolate("Нестле", 64.2, 37.3, "Грецкий орех"));
         sweetBox.add(new SwEggSurprise("Киндер Сюрприз", 78.6, 121.2, "Минивелосипед"));
+        sweetBox.add(new SwGlazedCookies("Печенька", 16.3, 13.7, "Патока"));
         sweetBox.showBoxAllInfo();
         sweetBox.getBoxPrice();
         sweetBox.getBoxWeight();
         sweetBox.showBoxAllInfo();
-        sweetBox.optimizeForWeight(10.0);
+        sweetBox.optimizeForWeight(255.0);
         sweetBox.getBoxPrice();
         sweetBox.getBoxWeight();
     }
