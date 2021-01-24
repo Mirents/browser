@@ -44,5 +44,7 @@ public abstract class Sweetness {
         return "Название: " + getName() + " Вес: " + getWeight() +
                 " гр., Стоимость: " + getPrice() + " р.";
     }
-    //public abstract void getSweetFeature();
+    
+    public abstract String getSweetFeature();
+    public abstract void setSweetFeature(String param);
 }

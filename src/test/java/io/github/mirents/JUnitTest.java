@@ -29,15 +29,15 @@ public class JUnitTest {
     }
 
     @Test
-    public void TestOne() {
+    public void TestEmpty() {
         System.out.println("    Шаг 1 - Проверка пустой коробки с подарками");
         sweetBox.showBoxAllInfo();
         Assert.assertEquals(0, sweetBox.getSize());
         // Ожидаемый / Фактический
         System.out.println("    Шаг 2 - Наполнение коробки");
-        sweetBox.add(new Candy("Русалочка", 2.3, 6.4));
-        sweetBox.add(new Candy("Весна", 1.9, 3.4, "Без начинки"));
-        sweetBox.add(new Candy("Левушка", 3.1, 7.2, "Вареная сгущенка"));
+        sweetBox.add(new SwCandy("Русалочка", 2.3, 6.4));
+        sweetBox.add(new SwCandy("Весна", 1.9, 3.4, "Без начинки"));
+        sweetBox.add(new SwCandy("Левушка", 3.1, 7.2, "Вареная сгущенка"));
         System.out.println("    Шаг 3 - Просмотр наполенной коробки");
         sweetBox.showBoxAllInfo();
         System.out.println("    Шаг 4 - Сравнение результата теста");
