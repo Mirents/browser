@@ -9,7 +9,7 @@ import java.util.List;
 
 public class SweetBox implements BoxUsing {
     // Массив сладостей
-    List<Sweetness> giftList;
+    private List<Sweetness> giftList;
 
     // Конструктор класса
     SweetBox() {
@@ -20,60 +20,119 @@ public class SweetBox implements BoxUsing {
     @Override
     public void add(Sweetness newSweet) {
         giftList.add(newSweet);
+        System.out.println("Добавлено: " + newSweet.toString());
     }
 
     @Override
-    public boolean deleteIndex(int num) {
+    public void deleteIndex(int num) {
         if(!giftList.isEmpty()) {
-            if(num > 0 && num < giftList.size()) {
-                giftList.remove(num--);
-                return true;
+            if(num >= 0 && num < giftList.size()) {
+                System.out.println("Удален элемент: " + giftList.get(num));
+                giftList.remove(num);
             } else {
-                return false;
+                System.out.println("Данного номера подарка нет в коробке");
             }
         } else {
-            return false;
+            System.out.println("1-Коробка с подарками пустая");
         }
     }
 
     @Override
-    public boolean deleteLast() {
-        return deleteIndex(giftList.size());
+    public void deleteLast() {
+        deleteIndex(giftList.size()-1);
     }
 
     @Override
-    public double getBoxWeight() {
+    public void getBoxWeight() {
         if(!giftList.isEmpty()) {
             double weight = 0.0;
             for(Sweetness sw : giftList)
                 weight += sw.getWeight();
-            return weight;
+            System.out.println("Общий вес коробки с подарками: " + weight);
         } else {
-            return 0.0;
+            System.out.println("2-Коробка с подарками пустая");
         }
     }
 
     @Override
-    public double getBoxPrice() {
+    public void getBoxPrice() {
          if(!giftList.isEmpty()) {
             double price = 0.0;
             for(Sweetness sw : giftList)
                 price += sw.getPrice();
-            return price;
+            System.out.println("Общая стоимость коробки с подарками: " + price);
         } else {
-            return 0.0;
+            System.out.println("3-Коробка с подарками пустая");
         }
     }
 
     @Override
     public void showBoxAllInfo() {
         if(!giftList.isEmpty()) {
-            for(Sweetness sw : giftList)
+            System.out.println("__________________________");
+            System.out.println("Список содержимого коробки:");
+            for(Sweetness sw : giftList) {
                 System.out.println(sw.toString());
+            }
+            System.out.println("__________________________");
         } else {
-            System.out.println("Коробка с подарками пустая");
+            System.out.println("4-Коробка с подарками пустая");
         }
-        
+    }
+
+    @Override
+    public void optimizeForPrice(double minimum) {
+        double param = 0.0;
+        if(!giftList.isEmpty()) {
+            for(Sweetness sw: giftList)
+                    param += sw.getPrice();
+            
+            if(param > minimum) 
+            {
+                double minPrice = giftList.get(0).getPrice();
+                int numMin = 0;
+                
+                for(int i = 0; i < giftList.size(); i++) {
+                    if(giftList.get(i).getPrice() < minPrice) {
+                       minPrice =  giftList.get(i).getPrice();
+                       numMin = i;
+                    }
+                }
+                giftList.remove(numMin);
+                optimizeForPrice(minimum);
+            } else
+                showBoxAllInfo();
+        } else {
+            System.out.println("5-Коробка с подарками пустая");
+        }
+    }
+
+    @Override
+    public void optimizeForWeight(double minimum) {
+        double param = 0.0;
+        if(!giftList.isEmpty()) {
+            for(Sweetness sw: giftList)
+                    param += sw.getWeight();
+            
+            if(param > minimum) 
+            {
+                double minWeight = giftList.get(0).getPrice();
+                int numMin = 0;
+                
+                for(int i = 0; i < giftList.size(); i++) {
+                    if(giftList.get(i).getPrice() < minWeight) {
+                       minWeight =  giftList.get(i).getWeight();
+                       numMin = i;
+                    }
+                }
+                System.out.println("Удаление элемента " + giftList.get(numMin));
+                giftList.remove(numMin);
+                optimizeForWeight(minimum);
+            } else
+                showBoxAllInfo();
+        } else {
+            System.out.println("6-Коробка с подарками пустая");
+        }
     }
     
 }

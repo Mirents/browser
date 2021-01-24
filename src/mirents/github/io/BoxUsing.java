@@ -7,13 +7,17 @@ public interface BoxUsing {
     // Добавление элемента
     public void add(Sweetness newSweet);
     // Удаление элемента по номеру
-    public boolean deleteIndex(int num);
+    public void deleteIndex(int num);
     // Удаоение последнего элемента
-    public boolean deleteLast();
+    public void deleteLast();
     // Получить вес коробки
-    public double getBoxWeight();
+    public void getBoxWeight();
     // Получить стоимость коробки
-    public double getBoxPrice();
+    public void getBoxPrice();
     // Отобразить всю информацию о содержимом коробки
     public void showBoxAllInfo();
+    // Оптимизировать подарок по цене
+    public void optimizeForPrice(double num);
+    // Оптимизировать подарок по весу
+    public void optimizeForWeight(double num);
 }

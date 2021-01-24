@@ -8,7 +8,7 @@ public abstract class Sweetness {
     private String name;
     private double weight;
     private double price;
-
+    
     Sweetness (String name, double weight, double price) {
         this.name = name;
         this.weight = weight;
@@ -39,5 +39,10 @@ public abstract class Sweetness {
         this.price = price;
     }
     
+    @Override
+    public String toString(){
+        return "Название: " + getName() + " Вес: " + getWeight() +
+                " гр., Стоимость: " + getPrice() + " р.";
+    }
     //public abstract void getSweetFeature();
 }
