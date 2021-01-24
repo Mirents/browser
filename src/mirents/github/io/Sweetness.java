@@ -9,6 +9,12 @@ public abstract class Sweetness {
     private double weight;
     private double price;
 
+    Sweetness (String name, double weight, double price) {
+        this.name = name;
+        this.weight = weight;
+        this.price = price;
+    }
+    
     public String getName() {
         return name;
     }
@@ -32,4 +38,6 @@ public abstract class Sweetness {
     public void setPrice(double price) {
         this.price = price;
     }
+    
+    //public abstract void getSweetFeature();
 }

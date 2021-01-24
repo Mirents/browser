@@ -5,15 +5,15 @@ package mirents.github.io;
 
 public interface BoxUsing {
     // Добавление элемента
-    public void add();
+    public void add(Sweetness newSweet);
     // Удаление элемента по номеру
     public boolean deleteIndex(int num);
     // Удаоение последнего элемента
     public boolean deleteLast();
     // Получить вес коробки
-    public double getWeightBox();
+    public double getBoxWeight();
     // Получить стоимость коробки
-    public double getPriceBox();
+    public double getBoxPrice();
     // Отобразить всю информацию о содержимом коробки
-    public void getAllAboutBox();
+    public void showBoxAllInfo();
 }
