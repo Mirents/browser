@@ -33,7 +33,7 @@ public class SweetBox implements BoxUsing {
                 System.out.println("Данного номера подарка нет в коробке");
             }
         } else {
-            System.out.println("1-Коробка с подарками пустая");
+            System.out.println("Коробка с подарками пустая");
         }
     }
 
@@ -50,7 +50,7 @@ public class SweetBox implements BoxUsing {
                 weight += sw.getWeight();
             System.out.println("Общий вес коробки с подарками: " + weight);
         } else {
-            System.out.println("2-Коробка с подарками пустая");
+            System.out.println("Коробка с подарками пустая");
         }
     }
 
@@ -62,7 +62,7 @@ public class SweetBox implements BoxUsing {
                 price += sw.getPrice();
             System.out.println("Общая стоимость коробки с подарками: " + price);
         } else {
-            System.out.println("3-Коробка с подарками пустая");
+            System.out.println("Коробка с подарками пустая");
         }
     }
 
@@ -76,7 +76,7 @@ public class SweetBox implements BoxUsing {
             }
             System.out.println("__________________________");
         } else {
-            System.out.println("4-Коробка с подарками пустая");
+            System.out.println("Коробка с подарками пустая");
         }
     }
 
@@ -103,7 +103,7 @@ public class SweetBox implements BoxUsing {
             } else
                 showBoxAllInfo();
         } else {
-            System.out.println("5-Коробка с подарками пустая");
+            System.out.println("Коробка с подарками пустая");
         }
     }
 
@@ -131,8 +131,11 @@ public class SweetBox implements BoxUsing {
             } else
                 showBoxAllInfo();
         } else {
-            System.out.println("6-Коробка с подарками пустая");
+            System.out.println("Коробка с подарками пустая");
         }
     }
     
+    public int getSize() {
+        return giftList.size();
+    }
 }

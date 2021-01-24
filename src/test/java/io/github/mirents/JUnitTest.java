@@ -14,8 +14,10 @@ import org.junit.BeforeClass;
 import org.junit.Test;
 
 public class JUnitTest {
+    SweetBox sweetBox;
     
     public JUnitTest() {
+        sweetBox = new SweetBox();
     }
 
     @BeforeClass
@@ -28,8 +30,18 @@ public class JUnitTest {
 
     @Test
     public void TestOne() {
-        System.out.println("Test 1");
-        Assert.assertEquals("Se", "Se");
+        System.out.println("    Шаг 1 - Проверка пустой коробки с подарками");
+        sweetBox.showBoxAllInfo();
+        Assert.assertEquals(0, sweetBox.getSize());
+        // Ожидаемый / Фактический
+        System.out.println("    Шаг 2 - Наполнение коробки");
+        sweetBox.add(new Candy("Русалочка", 2.3, 6.4));
+        sweetBox.add(new Candy("Весна", 1.9, 3.4, "Без начинки"));
+        sweetBox.add(new Candy("Левушка", 3.1, 7.2, "Вареная сгущенка"));
+        System.out.println("    Шаг 3 - Просмотр наполенной коробки");
+        sweetBox.showBoxAllInfo();
+        System.out.println("    Шаг 4 - Сравнение результата теста");
+        Assert.assertEquals(3, sweetBox.getSize());
     }
     
     @Test
