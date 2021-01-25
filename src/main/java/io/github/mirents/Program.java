@@ -6,21 +6,36 @@ package io.github.mirents;
 public class Program {
 
     public static void main(String[] args) {
+        // Создание экземпляра класса коробки со сладостями
         SweetBox sweetBox = new SweetBox();
+        // Наполнение коробки со сладостями
+        System.out.println("_________________________________________________");
+        sweetBox.add(new SwCandy("Русалочка", 19.0, 29.0));
+        sweetBox.add(new SwCandy("Весна",     18.0, 28.0, "Без начинки"));
+        sweetBox.add(new SwCandy("Левушка",   17.0, 27.0, "Вареная сгущенка"));
+        sweetBox.add(new SwChocolate("Бабаевский", 16.0, 26.0));
+        sweetBox.add(new SwChocolate("Нестле", 15.0, 25.0, "Грецкий орех"));
+        sweetBox.add(new SwEggSurprise("Киндер Сюрприз", 14.0, 21.0, "Минивелосипед"));
+        sweetBox.add(new SwGlazedCookies("Печенька", 13.0, 24.0, "Патока"));
+        // Вывод всей информации о содержимом подарка
         sweetBox.showBoxAllInfo();
-        sweetBox.add(new SwCandy("Русалочка", 2.3, 6.4));
-        sweetBox.add(new SwCandy("Весна",     1.9, 3.4, "Без начинки"));
-        sweetBox.add(new SwCandy("Левушка",   3.1, 7.2, "Вареная сгущенка"));
-        sweetBox.add(new SwChocolate("Бабаевский", 95.4, 74.5));
-        sweetBox.add(new SwChocolate("Нестле", 64.2, 37.3, "Грецкий орех"));
-        sweetBox.add(new SwEggSurprise("Киндер Сюрприз", 78.6, 121.2, "Минивелосипед"));
-        sweetBox.add(new SwGlazedCookies("Печенька", 16.3, 13.7, "Патока"));
-        sweetBox.showBoxAllInfo();
+        // Вывод стоимости подарка
         sweetBox.getBoxPrice();
+        // Вывод веса подарка
         sweetBox.getBoxWeight();
-        sweetBox.showBoxAllInfo();
-        sweetBox.optimizeForWeight(255.0);
+        System.out.println("_________________________________________________\n");
+        // Оптиизация по стоимости
+        sweetBox.optimizeForPrice(159.0);
+        // Вывод стоимости подарка
         sweetBox.getBoxPrice();
+        // Вывод веса подарка
+        sweetBox.getBoxWeight();
+        System.out.println("_________________________________________________\n");
+        // Оптиизация по весу
+        sweetBox.optimizeForWeight(78.0);
+        // Вывод стоимости подарка
+        sweetBox.getBoxPrice();
+        // Вывод веса подарка
         sweetBox.getBoxWeight();
     }
     

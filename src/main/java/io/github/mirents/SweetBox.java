@@ -6,7 +6,6 @@ package io.github.mirents;
 import java.util.ArrayList;
 import java.util.List;
 
-
 public class SweetBox implements BoxUsing {
     // Массив сладостей
     private List<Sweetness> giftList;
@@ -17,12 +16,14 @@ public class SweetBox implements BoxUsing {
         this.giftList = new ArrayList<>();
     }
     
+    // Добавление элемента
     @Override
     public void add(Sweetness newSweet) {
         giftList.add(newSweet);
         System.out.println("Добавлено: " + newSweet.toString());
     }
 
+    // Удаление элемента по номеру
     @Override
     public void deleteIndex(int num) {
         if(!giftList.isEmpty()) {
@@ -37,15 +38,17 @@ public class SweetBox implements BoxUsing {
         }
     }
 
+    // Удаление последнего элемента
     @Override
     public void deleteLast() {
         deleteIndex(giftList.size()-1);
     }
 
+    // Узнать вес подарка
     @Override
     public void getBoxWeight() {
         if(!giftList.isEmpty()) {
-            double weight = 0.0;
+            double weight = 0.0f;
             for(Sweetness sw : giftList)
                 weight += sw.getWeight();
             System.out.println("Общий вес коробки с подарками: " + weight);
@@ -54,10 +57,11 @@ public class SweetBox implements BoxUsing {
         }
     }
 
+    // Узнать стоимость подарка
     @Override
     public void getBoxPrice() {
          if(!giftList.isEmpty()) {
-            double price = 0.0;
+            double price = 0.0f;
             for(Sweetness sw : giftList)
                 price += sw.getPrice();
             System.out.println("Общая стоимость коробки с подарками: " + price);
@@ -66,23 +70,26 @@ public class SweetBox implements BoxUsing {
         }
     }
 
+    // Показать всю информацию о содержимом подарка
     @Override
     public void showBoxAllInfo() {
         if(!giftList.isEmpty()) {
-            System.out.println("__________________________");
             System.out.println("Список содержимого коробки:");
             for(Sweetness sw : giftList) {
                 System.out.println(sw.toString());
             }
-            System.out.println("__________________________");
         } else {
             System.out.println("Коробка с подарками пустая");
         }
     }
 
+    // Оптимизация по стоимости
+    // Не придумал ничего лучше рекурсии, хотя можно было реализовать через цикл,
+    // но я посчитал это целесообразным только в том случае, если нужно возвращать
+    // новый оптимизированный список подарков
     @Override
     public void optimizeForPrice(double minimum) {
-        double param = 0.0;
+        double param = 0.0f;
         if(!giftList.isEmpty()) {
             for(Sweetness sw: giftList)
                     param += sw.getPrice();
@@ -98,25 +105,31 @@ public class SweetBox implements BoxUsing {
                        numMin = i;
                     }
                 }
-                giftList.remove(numMin);
+                this.deleteIndex(numMin);
                 optimizeForPrice(minimum);
-            } else
+            } else {
+                System.out.println("Коробка оптимизирована по цене - " 
+                        + minimum + " р.");
                 showBoxAllInfo();
+            }
         } else {
             System.out.println("Коробка с подарками пустая");
         }
     }
 
+    // Оптимизация по весу
+    // Не самое изящное решение продублировать предыдущий метод, но пришлось
+    // к нему прибегнуть
     @Override
     public void optimizeForWeight(double minimum) {
-        double param = 0.0;
+        double param = 0.0f;
         if(!giftList.isEmpty()) {
             for(Sweetness sw: giftList)
                     param += sw.getWeight();
             
             if(param > minimum) 
             {
-                double minWeight = giftList.get(0).getPrice();
+                double minWeight = giftList.get(0).getWeight();
                 int numMin = 0;
                 
                 for(int i = 0; i < giftList.size(); i++) {
@@ -125,16 +138,20 @@ public class SweetBox implements BoxUsing {
                        numMin = i;
                     }
                 }
-                System.out.println("Удаление элемента " + giftList.get(numMin));
-                giftList.remove(numMin);
+                this.deleteIndex(numMin);
                 optimizeForWeight(minimum);
-            } else
+            } else {
+                System.out.println("Коробка оптимизирована по весу - " 
+                        + minimum + " гр.");
                 showBoxAllInfo();
+            }
         } else {
             System.out.println("Коробка с подарками пустая");
         }
     }
     
+    // По условию задачи к содержимому подарка нет доступа, но этот метод
+    // добавлен для юнит теста - проверки количества элементов в подарке
     public int getSize() {
         return giftList.size();
     }
