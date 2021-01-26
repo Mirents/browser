@@ -1,7 +1,9 @@
 /*
  * Интерфейс для реализации методов, использующихся в коробке с подарками
  */
-package io.github.mirents;
+package io.github.mirents.box;
+
+import io.github.mirents.sweets.Sweetness;
 
 public interface BoxUsing {
     // Добавление элемента
@@ -11,9 +13,9 @@ public interface BoxUsing {
     // Удаоение последнего элемента
     public void deleteLast();
     // Получить вес коробки
-    public void getBoxWeight();
+    public double getBoxWeight();
     // Получить стоимость коробки
-    public void getBoxPrice();
+    public double getBoxPrice();
     // Отобразить всю информацию о содержимом коробки
     public void showBoxAllInfo();
     // Оптимизировать подарок по цене

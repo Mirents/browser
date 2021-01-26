@@ -1,17 +1,17 @@
 /*
  * Класс яйца с сюрпризом, к уникальному параметру относится "Сюрприз"
  */
-package io.github.mirents;
+package io.github.mirents.sweets;
 
-public class SwEggSurprise extends Sweetness {
+public class EggSurprise extends Sweetness {
     private String surprise;
     
-    SwEggSurprise(String name, double weight, double price) {
+    public EggSurprise(String name, double weight, double price) {
         super(name, weight, price);
         setSweetFeature("Заводной мотоцикл");
     }
     
-    SwEggSurprise(String name, double weight, double price, String param) {
+    public EggSurprise(String name, double weight, double price, String param) {
         super(name, weight, price);
         setSweetFeature(param);
     }
@@ -22,8 +22,8 @@ public class SwEggSurprise extends Sweetness {
     }
 
     @Override
-    public void setSweetFeature(String param) {
-        this.surprise = param;
+    protected void setSweetFeature(String param) {
+        surprise = param;
     }
     
     @Override

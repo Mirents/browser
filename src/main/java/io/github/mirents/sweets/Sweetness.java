@@ -2,7 +2,7 @@
  * Базовый абстрактный класс для сущности сладость, от которой будут
  * унаследованы все сладости
  */
-package io.github.mirents;
+package io.github.mirents.sweets;
 
 public abstract class Sweetness {
     // Имя сладости
@@ -13,7 +13,7 @@ public abstract class Sweetness {
     private double price;
     
     // Конструктор
-    Sweetness (String name, double weight, double price) {
+    public Sweetness (String name, double weight, double price) {
         this.name = name;
         this.weight = weight;
         this.price = price;
@@ -25,24 +25,24 @@ public abstract class Sweetness {
         return name;
     }
 
-    public void setName(String name) {
-        this.name = name;
+    protected void setName(String name) {
+        name = name;
     }
 
     public double getWeight() {
         return weight;
     }
 
-    public void setWeight(double weight) {
-        this.weight = weight;
+    protected void setWeight(double weight) {
+        weight = weight;
     }
 
     public double getPrice() {
         return price;
     }
 
-    public void setPrice(double price) {
-        this.price = price;
+    protected void setPrice(double price) {
+        price = price;
     }
     
     // Вывод информации о сладости
@@ -55,5 +55,5 @@ public abstract class Sweetness {
     // Абстрактный метод получения особенности класса
     public abstract String getSweetFeature();
     // Абстрактный метод присвоения особенности класса
-    public abstract void setSweetFeature(String param);
+    protected abstract void setSweetFeature(String param);
 }

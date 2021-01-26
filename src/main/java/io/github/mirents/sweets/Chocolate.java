@@ -1,17 +1,17 @@
 /*
  * Класс шоколада, к уникальному параметру относится "Наполнитель"
  */
-package io.github.mirents;
+package io.github.mirents.sweets;
 
-public class SwChocolate extends Sweetness {
+public class Chocolate extends Sweetness {
     private String filler;
     
-    SwChocolate(String name, double weight, double price) {
+    public Chocolate(String name, double weight, double price) {
         super(name, weight, price);
         setSweetFeature("Крекер с темным шоколадом");
     }
     
-    SwChocolate(String name, double weight, double price, String param) {
+    public Chocolate(String name, double weight, double price, String param) {
         super(name, weight, price);
         setSweetFeature(param);
     }
@@ -22,8 +22,8 @@ public class SwChocolate extends Sweetness {
     }
 
     @Override
-    public void setSweetFeature(String param) {
-        this.filler = param;
+    protected void setSweetFeature(String param) {
+        filler = param;
     }
     
     @Override

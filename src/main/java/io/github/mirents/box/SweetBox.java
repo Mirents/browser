@@ -1,8 +1,9 @@
 /*
  * Класс коробки со всеми сладостями
  */
-package io.github.mirents;
+package io.github.mirents.box;
 
+import io.github.mirents.sweets.Sweetness;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -11,7 +12,7 @@ public class SweetBox implements BoxUsing {
     private List<Sweetness> giftList;
 
     // Конструктор класса
-    SweetBox() {
+    public SweetBox() {
         // Создание массива для хранения сладостей
         this.giftList = new ArrayList<>();
     }
@@ -46,27 +47,27 @@ public class SweetBox implements BoxUsing {
 
     // Узнать вес подарка
     @Override
-    public void getBoxWeight() {
+    public double getBoxWeight() {
         if(!giftList.isEmpty()) {
             double weight = 0.0f;
             for(Sweetness sw : giftList)
                 weight += sw.getWeight();
-            System.out.println("Общий вес коробки с подарками: " + weight);
+            return weight;
         } else {
-            System.out.println("Коробка с подарками пустая");
+            return 0.0;
         }
     }
 
     // Узнать стоимость подарка
     @Override
-    public void getBoxPrice() {
+    public double getBoxPrice() {
          if(!giftList.isEmpty()) {
             double price = 0.0f;
             for(Sweetness sw : giftList)
                 price += sw.getPrice();
-            System.out.println("Общая стоимость коробки с подарками: " + price);
+            return price;
         } else {
-            System.out.println("Коробка с подарками пустая");
+            return 0.0;
         }
     }
 
@@ -84,15 +85,11 @@ public class SweetBox implements BoxUsing {
     }
 
     // Оптимизация по стоимости
-    // Не придумал ничего лучше рекурсии, хотя можно было реализовать через цикл,
-    // но я посчитал это целесообразным только в том случае, если нужно возвращать
-    // новый оптимизированный список подарков
     @Override
     public void optimizeForPrice(double minimum) {
         double param = 0.0f;
         if(!giftList.isEmpty()) {
-            for(Sweetness sw: giftList)
-                    param += sw.getPrice();
+            param = getBoxPrice();
             
             if(param > minimum) 
             {
@@ -124,8 +121,7 @@ public class SweetBox implements BoxUsing {
     public void optimizeForWeight(double minimum) {
         double param = 0.0f;
         if(!giftList.isEmpty()) {
-            for(Sweetness sw: giftList)
-                    param += sw.getWeight();
+            param = getBoxWeight();
             
             if(param > minimum) 
             {
