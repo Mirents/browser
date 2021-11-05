@@ -10,8 +10,6 @@ Tomkat с приложением и UI-интерфейсом по адресу `http://localhost:8080/h2-consol
 
 Build System: `Maven`
 
-Test Framework: `JUnit 5`
-
 Logging: `log4j-slf4j`
 
 ## Настройки приложения

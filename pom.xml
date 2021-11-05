@@ -2,37 +2,94 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
 	<modelVersion>4.0.0</modelVersion>
-	<parent>
-		<groupId>org.springframework.boot</groupId>
-		<artifactId>spring-boot-starter-parent</artifactId>
-		<version>2.5.6</version>
-		<relativePath/> <!-- lookup parent from repository -->
-	</parent>
+	
+        <!-- Базовые настройки проекта -->
 	<groupId>io.mirent</groupId>
 	<artifactId>starter_sql_h2</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
 	<name>starter_sql_h2</name>
 	<description>A starter manager for learning SQL</description>
+        
 	<properties>
+                <!-- Параметры Java и кодировки-->
 		<java.version>1.8</java.version>
+                <encoding.type>UTF-8</encoding.type>
+                <project.build.sourceEncoding>${encoding.type}</project.build.sourceEncoding>
+                <project.reporting.outputEncoding>${encoding.type}</project.reporting.outputEncoding>
+                <file.encoding>${encoding.type}</file.encoding>
+                <maven.encoding>${encoding.type}</maven.encoding>
+                
+                <!-- Версия Maven и его прагинов-->
+                <maven.compiler.source>${java.version}</maven.compiler.source>
+                <maven.compiler.target>${java.version}</maven.compiler.target>
+                <maven.compiler.plugin.version>3.8.1</maven.compiler.plugin.version>
+                <maven.surefire.plugin.version>3.0.0-M3</maven.surefire.plugin.version>
+                
+                <!-- Логгер-->
+                <log4j2.version>2.7</log4j2.version>
+                
+                <!-- Версия Spring Boot компонентов-->
+                <spring.boot.version>2.5.4</spring.boot.version>
+                
+                <!-- Версия движка базы данных-->
+                <h2.version>1.4.200</h2.version>
 	</properties>
+        
+        <!-- Подключаемые зависимости -->
 	<dependencies>
+                <!-- Компоненты Spring Boot -->
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-data-jpa</artifactId>
+                        <version>${spring.boot.version}</version>
 		</dependency>
-
+                <dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-web</artifactId>
+                        <version>${spring.boot.version}</version>
+		</dependency>
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-devtools</artifactId>
-			<scope>runtime</scope>
-			<optional>true</optional>
+			<version>${spring.boot.version}</version>
 		</dependency>
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-test</artifactId>
+                        <version>${spring.boot.version}</version>
 			<scope>test</scope>
 		</dependency>
+                
+                <!-- Движок базы данных-->
+                <dependency>
+                    <groupId>com.h2database</groupId>
+                    <artifactId>h2</artifactId>
+                    <version>${h2.version}</version>
+                    <scope>runtime</scope>
+                </dependency>
+                
+                <!-- Логгер -->
+                <dependency>
+                    <groupId>org.apache.logging.log4j</groupId>
+                    <artifactId>log4j-api</artifactId>
+                    <version>${log4j2.version}</version>
+                </dependency>
+                <dependency>
+                    <groupId>org.apache.logging.log4j</groupId>
+                    <artifactId>log4j-core</artifactId>
+                    <version>${log4j2.version}</version>
+                </dependency>
+                <dependency>
+                    <groupId>org.apache.logging.log4j</groupId>
+                    <artifactId>log4j-slf4j-impl</artifactId>
+                    <version>${log4j2.version}</version>
+                </dependency>
+	 <dependency>
+	  <groupId>org.springframework.boot</groupId>
+	  <artifactId>spring-boot</artifactId>
+	  <version>2.5.6</version>
+	  <type>jar</type>
+	 </dependency>
 	</dependencies>
 
 	<build>
@@ -40,6 +97,7 @@
 			<plugin>
 				<groupId>org.springframework.boot</groupId>
 				<artifactId>spring-boot-maven-plugin</artifactId>
+                                <version>${spring.boot.version}</version>
 			</plugin>
 		</plugins>
 	</build>
