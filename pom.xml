@@ -19,15 +19,6 @@
                 <file.encoding>${encoding.type}</file.encoding>
                 <maven.encoding>${encoding.type}</maven.encoding>
                 
-                <!-- Версия Maven и его прагинов-->
-                <maven.compiler.source>${java.version}</maven.compiler.source>
-                <maven.compiler.target>${java.version}</maven.compiler.target>
-                <maven.compiler.plugin.version>3.8.1</maven.compiler.plugin.version>
-                <maven.surefire.plugin.version>3.0.0-M3</maven.surefire.plugin.version>
-                
-                <!-- Логгер-->
-                <log4j2.version>2.7</log4j2.version>
-                
                 <!-- Версия Spring Boot компонентов-->
                 <spring.boot.version>2.5.4</spring.boot.version>
                 
@@ -67,39 +58,11 @@
                     <version>${h2.version}</version>
                     <scope>runtime</scope>
                 </dependency>
-                
-                <!-- Логгер -->
-                <dependency>
-                    <groupId>org.apache.logging.log4j</groupId>
-                    <artifactId>log4j-api</artifactId>
-                    <version>${log4j2.version}</version>
-                </dependency>
-                <dependency>
-                    <groupId>org.apache.logging.log4j</groupId>
-                    <artifactId>log4j-core</artifactId>
-                    <version>${log4j2.version}</version>
-                </dependency>
-                <dependency>
-                    <groupId>org.apache.logging.log4j</groupId>
-                    <artifactId>log4j-slf4j-impl</artifactId>
-                    <version>${log4j2.version}</version>
-                </dependency>
 	 
 	</dependencies>
 
 	<build>
-		<plugins>
-                        <plugin>
-                            <groupId>org.apache.maven.plugins</groupId>
-                            <artifactId>maven-compiler-plugin</artifactId>
-                            <version>${maven.compiler.plugin.version}</version>
-                            <configuration>
-                                <encoding>${encoding.type}</encoding>
-                                <source>${maven.compiler.source}</source>
-                                <target>${maven.compiler.target}</target>
-                            </configuration>
-                        </plugin>
-                        
+		<plugins>                        
 			<plugin>
 				<groupId>org.springframework.boot</groupId>
 				<artifactId>spring-boot-maven-plugin</artifactId>
