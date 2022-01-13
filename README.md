@@ -10,8 +10,6 @@ Tomkat с UI-интерфейсом по адресу `http://localhost:8080/h2-
 
 Build System: `Maven`
 
-Logging: `log4j-slf4j`
-
 ## Настройки приложения
 
 Расположение файла с настройками проекта: `/src/main/resources/application.properties`
