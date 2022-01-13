@@ -1,4 +1,4 @@
-## Проект-стартовый менеджер базы данных для изучения SQL
+﻿## Проект-стартовый менеджер базы данных для изучения SQL
 
 ## Описание
 Spring-boot приложение для обучения SQL на примере БД H2. Поднимает сервер 
@@ -28,9 +28,9 @@ UI-интерфейс расположен по адресу `http://localhost:8
 
 Saved Settings: `Generic H2 (Embedded)`
 
-Driver class: `org.h2.Driver` (указан в файле `application-properties`)
+Driver class: `org.h2.Driver` (указан в файле `application.properties`)
 
-JDBC URL: `jdbc:h2:mem:test_mem` (указан в файле `application-properties`)
+JDBC URL: `jdbc:h2:mem:test_mem` (указан в файле `application.properties`)
 
 Username: sa (по-умолчанию)
 
