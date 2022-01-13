@@ -1,4 +1,4 @@
-package io.mirent.study_sql;
+package io.mirents;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;

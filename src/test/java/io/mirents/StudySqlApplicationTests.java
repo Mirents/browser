@@ -1,4 +1,4 @@
-package io.mirent.study_sql;
+package io.mirents;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
