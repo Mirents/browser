@@ -5,9 +5,9 @@
 	
         <!-- Базовые настройки проекта -->
 	<groupId>io.mirent</groupId>
-	<artifactId>starter_sql_h2</artifactId>
+	<artifactId>spring_boot_sql_on_h2</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
-	<name>starter_sql_h2</name>
+	<name>spring_boot_sql_on_h2</name>
 	<description>A starter manager for learning SQL</description>
         
 	<properties>
