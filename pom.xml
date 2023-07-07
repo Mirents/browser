@@ -23,7 +23,7 @@
                 <spring.boot.version>2.5.12</spring.boot.version>
                 
                 <!-- Версия движка базы данных-->
-                <h2.version>2.1.210</h2.version>
+                <h2.version>2.2.220</h2.version>
 	</properties>
         
         <!-- Подключаемые зависимости -->
